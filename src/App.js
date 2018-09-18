@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import styles from './App.module.scss';
+import { Button } from 'reactstrap';
 
 class App extends Component {
   render() {
@@ -13,6 +14,9 @@ class App extends Component {
         <p className={styles.intro}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <div>
+          <Button color="primary">primary</Button>{' '}
+        </div>
       </div>
     );
   }
