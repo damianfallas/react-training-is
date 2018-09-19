@@ -1,5 +1,5 @@
 
-const api = "http://localhost:3001"
+const api = "http://localhost:3000"
 export const UP_VOTE = 'upVote'
 export const DOWN_VOTE = 'downVote'
 
