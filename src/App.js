@@ -28,9 +28,18 @@ class App extends Component {
           commentCount: 0
       }
     ];
+    const votePost = (id, action) => {
+      posts = posts.map(post => {
+          if(post.id === id) {
+              post.voteScore = action === 'up' ? post.voteScore + 1 : post.voteScore - 1;
+              console.log(post.id, post.voteScore);
+          }
+          return post;
+      });
+    }
     return (
       <div className={styles.App}>
-        <Dashboard posts={posts} />
+        <Dashboard posts={posts} votePost={votePost}/>
       </div>
     );
   }

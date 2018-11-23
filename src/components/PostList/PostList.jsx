@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import { FaEdit } from 'react-icons/fa/index.mjs';
 import { FiDelete, FiThumbsUp, FiThumbsDown } from 'react-icons/fi';
 import Moment from 'react-moment'
 
 class PostList extends Component {
-    static PropTypes = {
-        title: PropTypes.string,
-        posts: PropTypes.array
+    static propTypes = {
+        title: propTypes.string,
+        posts: propTypes.array,
+        votePost: propTypes.func.isRequired
     }
     static defaultProps = {
         title: 'Posts'
     }
+
     render() {
-        const {posts, title} = this.props;
+        const {posts, title, votePost} = this.props;
         return (
             <div>
                 <h2>{title}</h2>
@@ -30,8 +32,8 @@ class PostList extends Component {
                                 {post.title}&nbsp;
                                 <FaEdit size={16} />&nbsp;
                                 <FiDelete size={16} />&nbsp;
-                                <FiThumbsUp size={16} />&nbsp;
-                                <FiThumbsDown size={16} />
+                                <button onClick={() => { votePost(post.id, 'up')} }><FiThumbsUp size={16} /></button>&nbsp;
+                                <button onClick={() => { votePost(post.id, 'down')} }><FiThumbsDown size={16} /></button>
                                 <div>
                                     <Moment forma="MMM Do YY" unix>{post.timestamp / 1000}</Moment>&nbsp;
                                     <strong>Author:</strong>{post.author}&nbsp; |&nbsp;
