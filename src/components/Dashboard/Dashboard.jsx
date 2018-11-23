@@ -6,7 +6,7 @@ class Dashboard extends Component {
         return (
             <div>
                 <h1>Dashboard</h1>
-                <PostList posts={this.props.posts} votePost={this.props.votePost} />
+                <PostList />
             </div>
         );
     }
